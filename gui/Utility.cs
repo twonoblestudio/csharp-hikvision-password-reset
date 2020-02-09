@@ -1,20 +1,11 @@
 ﻿using lib;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace gui
 {
     public partial class Utility : Form
     {
-        private HikvisionPassword hikvisionPassword = new HikvisionPassword();
-
         public Utility()
         {
             InitializeComponent();
@@ -22,6 +13,8 @@ namespace gui
 
         private void generateButton_Click(object sender, EventArgs e)
         {
+            HikvisionPassword hikvisionPassword = new HikvisionPassword();
+
             pwdResetCodeTextBox.Text = string.Empty;
 
             errorProvider.Clear();
@@ -54,7 +47,7 @@ namespace gui
 
                 hasError = true;
             }
-            else if (hikvisionPassword.ValidateDay(year, month, day) == false)
+            else if (hikvisionPassword.ValidateDay(day) == false)
             {
                 errorProvider.SetError(dateTimePicker, "Invalid day");
 
@@ -72,6 +65,11 @@ namespace gui
             TextBox input = sender as TextBox;
 
             input.SelectAll();
+        }
+
+        private void Utility_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

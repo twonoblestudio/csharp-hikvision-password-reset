@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5071B17D-39DB-4D31-A5D5-9623B9376762}</ProjectGuid>
+    <ProjectGuid>{C60CEB47-0B43-49A1-A356-4847CACFB073}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>console</RootNamespace>
-    <AssemblyName>console</AssemblyName>
+    <RootNamespace>console_input</RootNamespace>
+    <AssemblyName>console_input</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -32,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="lib">
+      <HintPath>..\lib\bin\Release\lib.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -47,12 +50,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\lib\lib.csproj">
-      <Project>{079d83ef-8f36-4624-8a34-6c72f667403a}</Project>
-      <Name>lib</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

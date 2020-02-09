@@ -1,18 +1,17 @@
-﻿using System.Resources;
-using System.Reflection;
+﻿using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("console")]
-[assembly: AssemblyDescription("This tool will generate a password reset code which you may use to reset a forgotten admin password for a Hikvision camera")]
+[assembly: AssemblyTitle("console_arg")]
+[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("2 Noble Studio")]
-[assembly: AssemblyProduct("Hikvision Password Reset Tool")]
-[assembly: AssemblyCopyright("Copyright © 2 Noble Studio 2020")]
-[assembly: AssemblyTrademark("2 Noble Studio")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("console_arg")]
+[assembly: AssemblyCopyright("Copyright ©  2020")]
+[assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible
@@ -21,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("5071b17d-39db-4d31-a5d5-9623b9376762")]
+[assembly: Guid("b1f243e9-9260-4fe8-90d8-a2ef4f79d51a")]
 
 // Version information for an assembly consists of the following four values:
 //
@@ -35,4 +34,3 @@ using System.Runtime.InteropServices;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
-[assembly: NeutralResourcesLanguage("en")]

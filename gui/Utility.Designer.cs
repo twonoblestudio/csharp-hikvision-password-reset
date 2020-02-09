@@ -123,6 +123,7 @@
             this.Name = "Utility";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Hikvision Password Reset Tool";
+            this.Load += new System.EventHandler(this.Utility_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

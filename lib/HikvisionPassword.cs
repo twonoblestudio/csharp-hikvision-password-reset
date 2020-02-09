@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Linq;
 using System.Text.RegularExpressions;
 
@@ -11,9 +10,14 @@ namespace lib
 
         public bool ValidateSerialNumber(string serial_number)
         {
-            Match serial_match = this.serial_regex.Match(serial_number);
+            if (serial_number.All(char.IsLetterOrDigit) == true)
+            {
+                Match serial_match = this.serial_regex.Match(serial_number);
 
-            return serial_match.Success && serial_number.Length >= 27;
+                return serial_match.Success && serial_number.Length == 27;
+            }
+
+            return false;
         }
 
         public bool ValidateYear(string year)
@@ -36,18 +40,14 @@ namespace lib
             return false;
         }
 
-        public bool ValidateDay(string year, string month, string day)
+        public bool ValidateDay(string day)
         {
-            try
+            if (day.All(char.IsDigit) == true)
             {
-                new DateTime(int.Parse(year), int.Parse(month), int.Parse(day));
+                return int.Parse(day) >= 1 && int.Parse(day) <= 31;
+            }
 
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
+            return false;
         }
 
         public string GeneratePasswordResetCode(string serial_number, string year, string month, string day)

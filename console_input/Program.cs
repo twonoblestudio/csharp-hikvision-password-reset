@@ -1,17 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using lib;
+﻿using lib;
+using System;
 
-namespace console
+namespace console_input
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
+            Console.Clear();
+
+            Console.WriteLine("This tool will generate a password reset code which you may use to reset a forgotten admin password for a Hikvision camera");
+
             HikvisionPassword hikvisionPassword = new HikvisionPassword();
 
             string serial_number = String.Empty;
@@ -19,14 +18,14 @@ namespace console
 
             while (serial_valid == false)
             {
-                Console.Write("Serial number: ");
+                Console.Write("Enter camera serial number: ");
 
                 serial_number = Console.ReadLine();
                 serial_valid = hikvisionPassword.ValidateSerialNumber(serial_number);
 
                 if (serial_valid == false)
                 {
-                    Console.WriteLine("Invalid serial number");
+                    Console.WriteLine("Invalid serial number. Press Ctrl+C to abort.");
                 }
             }
 
@@ -35,14 +34,14 @@ namespace console
 
             while (year_valid == false)
             {
-                Console.Write("Year: ");
+                Console.Write("Enter year displayed on screen: ");
 
                 year = Console.ReadLine();
                 year_valid = hikvisionPassword.ValidateYear(year);
 
                 if (year_valid == false)
                 {
-                    Console.WriteLine("Invalid year");
+                    Console.WriteLine("Invalid year. Press Ctrl+C to abort.");
                 }
             }
 
@@ -51,14 +50,14 @@ namespace console
 
             while (mont_valid == false)
             {
-                Console.Write("Month: ");
+                Console.Write("Enter month displayed on screen: ");
 
                 month = Console.ReadLine();
                 mont_valid = hikvisionPassword.ValidateMonth(month);
 
                 if (mont_valid == false)
                 {
-                    Console.WriteLine("Invalid month");
+                    Console.WriteLine("Invalid month. Press Ctrl+C to abort.");
                 }
             }
 
@@ -67,18 +66,20 @@ namespace console
 
             while (day_valid == false)
             {
-                Console.Write("Day: ");
+                Console.Write("Enter day displayed on screen: ");
 
                 day = Console.ReadLine();
-                day_valid = hikvisionPassword.ValidateDay(year, month, day);
+                day_valid = hikvisionPassword.ValidateDay(day);
 
                 if (day_valid == false)
                 {
-                    Console.WriteLine("Invalid day");
+                    Console.WriteLine("Invalid day. Press Ctrl+C to abort.");
                 }
             }
 
-            Console.WriteLine(hikvisionPassword.GeneratePasswordResetCode(serial_number, year, month, day));
+            string reset_code = hikvisionPassword.GeneratePasswordResetCode(serial_number, year, month, day);
+
+            Console.WriteLine(string.Format("Your password reset code is '{0}'", reset_code));
 
             Console.ReadKey();
         }
